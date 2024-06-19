@@ -1,13 +1,16 @@
 {
   "name": "ToxicBlock",
-  "description": "ネット上のテキストをAIが検閲します、現段階では報告機能のみ利用可能です。",
-  "version": "1.0.0",
+  "description": "ネット上のテキストをAIが検閲します、現段階ではYouTubeとTwitchとX（Twitter）に対応しています。",
+  "version": "1.1.0",
   "manifest_version": 3,
+  "permissions": ["storage"],
+  "options_page": "options.html",
   "content_scripts": [{
       "matches": ["https://www.youtube.com/*",
                   "https://studio.youtube.com/*",
                   "https://www.twitch.tv/*",
-                  "https://twitter.com/*"],
+                  "https://twitter.com/*",
+                  "https://x.com/*"],
       "all_frames": true,
       "js":      ["js/loader.js"],
       "run_at": "document_start"
@@ -19,8 +22,10 @@
       "matches":   ["https://www.youtube.com/*",
                     "https://studio.youtube.com/*",
                     "https://www.twitch.tv/*",
-                    "https://twitter.com/*"]
+                    "https://twitter.com/*",
+                    "https://x.com/*"]
   }],
+  "host_permissions":  ["https://www.toxicblock.com/*"],
   "icons": {
     "16": "files/icon16.png",
     "32": "files/icon32.png",

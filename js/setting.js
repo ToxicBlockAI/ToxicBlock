@@ -8,13 +8,13 @@ export class SettingClass {
 
         if(this.url.includes("https://www.youtube.com") || this.url.includes("https://studio.youtube.com")){
             if(this.url.includes("live_chat")){
-                target = document.querySelector("#chat-messages");
+                target = document.querySelector("yt-live-chat-app");
             }else if(this.url.includes("watch") || this.url.includes("shorts")){
                 target = document.querySelector("#page-manager");
             }
         }else if(this.url.includes("https://www.twitch.tv")){
             target = document.body;
-        }else if(this.url.includes("https://twitter.com")){
+        }else if(this.url.includes("https://twitter.com") || this.url.includes("https://x.com")){
             target = document.body;
         }
 
@@ -40,7 +40,7 @@ export class SettingClass {
                 characterData: false,
                 subtree: true
             };
-        }else if(this.url.includes("https://twitter.com")){
+        }else if(this.url.includes("https://twitter.com") || this.url.includes("https://x.com")){
             config = {
                 attributes: true,
                 attributeOldValue: true,

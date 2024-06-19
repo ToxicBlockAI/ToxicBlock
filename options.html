@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>ToxicBlock 設定画面</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="files/icon32.png" alt="Logo" width="32" height="32" class="d-inline-block align-text-top">
+                 ToxicBlock 設定画面
+            </a>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="debugmodeSwitch">
+            </div>
+        </div>
+    </nav><br>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                リンク
+            </div>
+            <div class="card-body">
+                <a class="btn btn-primary" href="https://github.com/ToxicBlockAI/ToxicBlock" target="_blank" rel="noopener noreferrer" role="button">GitHubリポジトリ</a>
+                <a class="btn btn-primary" href="https://x.com/ToxicBlock_AI" target="_blank" rel="noopener noreferrer" role="button">公式アカウント(Twitter)</a>
+                <a class="btn btn-primary" href="https://x.com/JPN_Miracle" target="_blank" rel="noopener noreferrer" role="button">開発者(Twitter)</a>
+            </div>
+        </div><br>
+        <div class="card">
+            <div class="card-header">
+                詳細設定
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">YouTube</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="youtubeCheck">
+                    <label class="form-check-label" for="youtubeCheck">
+                        ブロック機能を有効にする
+                    </label>
+                </div><br>
+                <h5 class="card-title">Twitch</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="twitchCheck">
+                    <label class="form-check-label" for="twitchCheck">
+                        ブロック機能を有効にする
+                    </label>
+                </div><br>
+                <h5 class="card-title">Twitter</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="twitterCheck">
+                    <label class="form-check-label" for="twitterCheck">
+                        ブロック機能を有効にする
+                    </label>
+                </div><br>
+                <h5 class="card-title">ブロックするカテゴリーの設定</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck1">
+                    <label class="form-check-label" for="blockCheck1">
+                        通常
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck2">
+                    <label class="form-check-label" for="blockCheck2">
+                        アドバイス
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck3">
+                    <label class="form-check-label" for="blockCheck3">
+                        指示
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck4">
+                    <label class="form-check-label" for="blockCheck4">
+                        匂わせ
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck5">
+                    <label class="form-check-label" for="blockCheck5">
+                        ネタバレ
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck6">
+                    <label class="form-check-label" for="blockCheck6">
+                        自治行為
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck7">
+                    <label class="form-check-label" for="blockCheck7">
+                        放送事故
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck8">
+                    <label class="form-check-label" for="blockCheck8">
+                        杞憂
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck9">
+                    <label class="form-check-label" for="blockCheck9">
+                        厄介行為
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck10">
+                    <label class="form-check-label" for="blockCheck10">
+                        伝書鳩
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck11">
+                    <label class="form-check-label" for="blockCheck11">
+                        荒らし
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck12">
+                    <label class="form-check-label" for="blockCheck12">
+                        スパム
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck13">
+                    <label class="form-check-label" for="blockCheck13">
+                        セクハラ
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck14">
+                    <label class="form-check-label" for="blockCheck14">
+                        罵詈雑言
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="blockCheck15">
+                    <label class="form-check-label" for="blockCheck15">
+                        誹謗中傷
+                    </label>
+                </div><br>
+                <h5 class="card-title">ブロックするスコアの設定</h5>
+                <div class="mb-3">
+                    <label for="thresholdSlider" class="form-label">AIが採点したスコアが<label id="thresholdLabel"></label>点以上ならコメントをブロックする</label>
+                    <input type="range" min="0" max="100" value="80" class="form-range" id="thresholdSlider">
+                </div>
+            </div>
+        </div><br>
+        <div class="card">
+            <div class="card-header">
+                ブロックされないテキスト一覧
+            </div>
+            <div class="card-body">
+                <select class="form-select" id="throughSelect" multiple size="15" aria-label="size 15 select example">
+                </select><br>
+                <input class="form-control" id="textInput" placeholder="ブロックしたくないテキストを入力して下さい。">
+                <br>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" id="addButton" type="button">追加</button>
+                </div><br>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" id="deleteButton" type="button">削除</button>
+                </div>
+            </div>
+        </div><br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" id="saveButton" type="button">保存</button>
+        </div><br>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" id="resetButton" type="button">初期状態にリセット</button>
+        </div><br>
+        <!-- Modal -->
+        <div class="modal fade" id="noticeModal" tabindex="-1" aria-labelledby="noticeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="noticeModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="noticeModalText">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/options.js"></script>
+</body>
+</html>
