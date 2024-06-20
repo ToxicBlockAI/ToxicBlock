@@ -4,9 +4,25 @@ document.addEventListener("DOMContentLoaded", function(){
 	chrome.storage.local.get("ToxicBlock", function (items) {
 		if(items.ToxicBlock != undefined){
 			document.getElementById("debugmodeSwitch").checked = items.ToxicBlock["debugMode"];
-			document.getElementById("youtubeCheck").checked = items.ToxicBlock["youtubeFilter"];
-			document.getElementById("twitchCheck").checked = items.ToxicBlock["twitchFilter"];
-			document.getElementById("twitterCheck").checked = items.ToxicBlock["twitterFilter"];
+			document.getElementById("youtubeReportCheck").checked = items.ToxicBlock["youtube"]["reportEnabled"];
+			document.getElementById("youtubeBlockCheck").checked = items.ToxicBlock["youtube"]["blockEnabled"];
+			document.getElementById("youtubeCommentCheck").checked = items.ToxicBlock["youtube"]["commentEnabled"];
+			document.getElementById("youtubeChatCheck").checked = items.ToxicBlock["youtube"]["chatEnabled"];
+			document.getElementById("youtubeSuperchatCheck").checked = items.ToxicBlock["youtube"]["superchatEnabled"];
+			document.getElementById("youtubeMemberchatCheck").checked = items.ToxicBlock["youtube"]["memberchatEnabled"];
+			document.getElementById("youtubeMemberCheck").checked = items.ToxicBlock["youtube"]["memberEnabled"];
+			document.getElementById("youtubeModeratorCheck").checked = items.ToxicBlock["youtube"]["moderatorEnabled"];
+			document.getElementById("youtubeVerifiedCheck").checked = items.ToxicBlock["youtube"]["verifiedEnabled"];
+			document.getElementById("twitchReportCheck").checked = items.ToxicBlock["twitch"]["reportEnabled"];
+			document.getElementById("twitchBlockCheck").checked = items.ToxicBlock["twitch"]["blockEnabled"];
+			document.getElementById("twitchTurboCheck").checked = items.ToxicBlock["twitch"]["turboEnabled"];
+			document.getElementById("twitchPrimegamingCheck").checked = items.ToxicBlock["twitch"]["primegamingEnabled"];
+			document.getElementById("twitchModeratorCheck").checked = items.ToxicBlock["twitch"]["moderatorEnabled"];
+			document.getElementById("twitchVerifiedCheck").checked = items.ToxicBlock["twitch"]["verifiedEnabled"];
+			document.getElementById("twitterReportCheck").checked = items.ToxicBlock["twitter"]["reportEnabled"];
+			document.getElementById("twitterBlockCheck").checked = items.ToxicBlock["twitter"]["blockEnabled"];
+			document.getElementById("twitterBluebadgeCheck").checked = items.ToxicBlock["twitter"]["bluebadgeEnabled"];
+			document.getElementById("twitterGoldbadgeCheck").checked = items.ToxicBlock["twitter"]["goldbadgeEnabled"];
 			document.getElementById("blockCheck1").checked = items.ToxicBlock["textBlock1"];
 			document.getElementById("blockCheck2").checked = items.ToxicBlock["textBlock2"];
 			document.getElementById("blockCheck3").checked = items.ToxicBlock["textBlock3"];
@@ -25,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function(){
 			document.getElementById("thresholdSlider").value = items.ToxicBlock["scoreThreshold"]*100;
 			document.getElementById("thresholdLabel").innerText = items.ToxicBlock["scoreThreshold"]*100;
 
-			let select = document.getElementById("throughSelect");
-			for(const text of items.ToxicBlock["throughList"]){
+			let select = document.getElementById("whitelistSelect");
+			for(const text of items.ToxicBlock["whiteList"]){
 				let option = document.createElement("option");
 				option.text = text;
 				option.value = text;
@@ -38,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.getElementById("addButton").addEventListener("click", function(){
 	let input = document.getElementById("textInput").value;
-	let select = document.getElementById("throughSelect");
+	let select = document.getElementById("whitelistSelect");
 
 	let is_unique = true;
 	for(const option of select){
@@ -61,7 +77,7 @@ document.getElementById("addButton").addEventListener("click", function(){
 });
 
 document.getElementById("deleteButton").addEventListener("click", function(){
-	let select = document.getElementById("throughSelect");
+	let select = document.getElementById("whitelistSelect");
 	let options = select.options;
 
 	for (var i=options.length-1; i >= 0; i--) {
@@ -73,9 +89,25 @@ document.getElementById("deleteButton").addEventListener("click", function(){
 
 document.getElementById("resetButton").addEventListener("click", function(){
 	document.getElementById("debugmodeSwitch").checked = false;
-	document.getElementById("youtubeCheck").checked = false;
-	document.getElementById("twitchCheck").checked = false;
-	document.getElementById("twitterCheck").checked = false;
+	document.getElementById("youtubeReportCheck").checked = false;
+	document.getElementById("youtubeBlockCheck").checked = false;
+	document.getElementById("youtubeCommentCheck").checked = false;
+	document.getElementById("youtubeChatCheck").checked = false;
+	document.getElementById("youtubeSuperchatCheck").checked = false;
+	document.getElementById("youtubeMemberchatCheck").checked = false;
+	document.getElementById("youtubeMemberCheck").checked = false;
+	document.getElementById("youtubeModeratorCheck").checked = false;
+	document.getElementById("youtubeVerifiedCheck").checked = false;
+	document.getElementById("twitchReportCheck").checked = false;
+	document.getElementById("twitchBlockCheck").checked = false;
+	document.getElementById("twitchTurboCheck").checked = false;
+	document.getElementById("twitchPrimegamingCheck").checked = false;
+	document.getElementById("twitchModeratorCheck").checked = false;
+	document.getElementById("twitchVerifiedCheck").checked = false;
+	document.getElementById("twitterReportCheck").checked = false;
+	document.getElementById("twitterBlockCheck").checked = false;
+	document.getElementById("twitterBluebadgeCheck").checked = false;
+	document.getElementById("twitterGoldbadgeCheck").checked = false;
 	document.getElementById("blockCheck1").checked = false;
 	document.getElementById("blockCheck2").checked = false;
 	document.getElementById("blockCheck3").checked = false;
@@ -94,7 +126,7 @@ document.getElementById("resetButton").addEventListener("click", function(){
 	document.getElementById("thresholdSlider").value = 80;
 	document.getElementById("thresholdLabel").innerText = 80;
 
-	let options = document.getElementById("throughSelect").options;
+	let options = document.getElementById("whitelistSelect").options;
 	for(const option of options){
 		option.remove();
 	}
@@ -121,7 +153,7 @@ document.getElementById("resetButton").addEventListener("click", function(){
 		"lmaooo", "WHAT", "ナイスー", "yabe", "お疲れ様", "うわ", "やさしい", "NICEEE", "つっよ"
 	];
 
-	let select = document.getElementById("throughSelect");
+	let select = document.getElementById("whitelistSelect");
 	for(const text of texts){
 		let option = document.createElement("option");
 		option.text = text;
@@ -133,9 +165,28 @@ document.getElementById("resetButton").addEventListener("click", function(){
 document.getElementById("saveButton").addEventListener("click", function(){
 	let items = {};
 	items["debugMode"] = document.getElementById("debugmodeSwitch").checked;
-	items["youtubeFilter"] = document.getElementById("youtubeCheck").checked;
-	items["twitchFilter"] = document.getElementById("twitchCheck").checked;
-	items["twitterFilter"] = document.getElementById("twitterCheck").checked;
+	items["youtube"] = {};
+	items["youtube"]["reportEnabled"] = document.getElementById("youtubeReportCheck").checked;
+	items["youtube"]["blockEnabled"] = document.getElementById("youtubeBlockCheck").checked;
+	items["youtube"]["commentEnabled"] = document.getElementById("youtubeCommentCheck").checked;
+	items["youtube"]["chatEnabled"] = document.getElementById("youtubeChatCheck").checked;
+	items["youtube"]["superchatEnabled"] = document.getElementById("youtubeSuperchatCheck").checked;
+	items["youtube"]["memberchatEnabled"] = document.getElementById("youtubeMemberchatCheck").checked;
+	items["youtube"]["memberEnabled"] = document.getElementById("youtubeMemberCheck").checked;
+	items["youtube"]["moderatorEnabled"] = document.getElementById("youtubeModeratorCheck").checked;
+	items["youtube"]["verifiedEnabled"] = document.getElementById("youtubeVerifiedCheck").checked;
+	items["twitch"] = {};
+	items["twitch"]["reportEnabled"] = document.getElementById("twitchReportCheck").checked;
+	items["twitch"]["blockEnabled"] = document.getElementById("twitchBlockCheck").checked;
+	items["twitch"]["turboEnabled"] = document.getElementById("twitchTurboCheck").checked;
+	items["twitch"]["primegamingEnabled"] = document.getElementById("twitchPrimegamingCheck").checked;
+	items["twitch"]["moderatorEnabled"] = document.getElementById("twitchModeratorCheck").checked;
+	items["twitch"]["verifiedEnabled"] = document.getElementById("twitchVerifiedCheck").checked;
+	items["twitter"] = {};
+	items["twitter"]["reportEnabled"] = document.getElementById("twitterReportCheck").checked;
+	items["twitter"]["blockEnabled"] = document.getElementById("twitterBlockCheck").checked;
+	items["twitter"]["bluebadgeEnabled"] = document.getElementById("twitterBluebadgeCheck").checked;
+	items["twitter"]["goldbadgeEnabled"] = document.getElementById("twitterGoldbadgeCheck").checked;
 	items["textBlock1"] = document.getElementById("blockCheck1").checked;
 	items["textBlock2"] = document.getElementById("blockCheck2").checked;
 	items["textBlock3"] = document.getElementById("blockCheck3").checked;
@@ -153,12 +204,12 @@ document.getElementById("saveButton").addEventListener("click", function(){
 	items["textBlock15"] = document.getElementById("blockCheck15").checked;
 	items["scoreThreshold"] = document.getElementById("thresholdSlider").value/100;
 
-	let throughlist = [];
-	let options = document.getElementById("throughSelect").options;
+	let whitelist = [];
+	let options = document.getElementById("whitelistSelect").options;
 	for(const option of options){
-		throughlist.push(option.value);
+		whitelist.push(option.value);
 	}
-	items["throughList"] = throughlist;
+	items["whiteList"] = whitelist;
 
 	chrome.storage.local.set({"ToxicBlock": items}, function () {
 		document.getElementById("noticeModalLabel").innerText = "システムメッセージ";

@@ -36,9 +36,28 @@ chrome.storage.local.get("ToxicBlock", function(items){
     }else{
         let items = {};
         items["debugMode"] = false;
-        items["youtubeFilter"] = false;
-        items["twitchFilter"] = false;
-        items["twitterFilter"] = false;
+        items["youtube"] = {};
+        items["youtube"]["reportEnabled"] = false;
+        items["youtube"]["blockEnabled"] = false;
+        items["youtube"]["commentEnabled"] = false;
+        items["youtube"]["chatEnabled"] = false;
+        items["youtube"]["superchatEnabled"] = false;
+        items["youtube"]["memberchatEnabled"] = false;
+        items["youtube"]["memberEnabled"] = false;
+        items["youtube"]["moderatorEnabled"] = false;
+        items["youtube"]["verifiedEnabled"] = false;
+        items["twitch"] = {};
+        items["twitch"]["reportEnabled"] = false;
+        items["twitch"]["blockEnabled"] = false;
+        items["twitch"]["turboEnabled"] = false;
+        items["twitch"]["primegamingEnabled"] = false;
+        items["twitch"]["moderatorEnabled"] = false;
+        items["twitch"]["verifiedEnabled"] = false;
+        items["twitter"] = {};
+        items["twitter"]["reportEnabled"] = false;
+        items["twitter"]["blockEnabled"] = false;
+        items["twitter"]["bluebadgeEnabled"] = false;
+        items["twitter"]["goldbadgeEnabled"] = false;
         items["textBlock1"] = false;
         items["textBlock2"] = false;
         items["textBlock3"] = false;
@@ -78,7 +97,7 @@ chrome.storage.local.get("ToxicBlock", function(items){
             "lmaooo", "WHAT", "ナイスー", "yabe", "お疲れ様", "うわ", "やさしい", "NICEEE", "つっよ"
         ];
 
-        items["throughList"] = texts;
+        items["whiteList"] = texts;
 
         chrome.storage.local.set({"ToxicBlock": items}, function () {
             main(items);
